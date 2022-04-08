@@ -22,19 +22,20 @@ mostrarAlerta(BuildContext context, String titulo, String subtitulo) {
         ],
       ),
     );
+  } else {
+    showCupertinoDialog(
+      context: context,
+      builder: (_) => CupertinoAlertDialog(
+        title: Text(titulo),
+        content: Text(subtitulo),
+        actions: [
+          CupertinoDialogAction(
+            isDefaultAction: true,
+            child: const Text('Ok'),
+            onPressed: () => Navigator.pop(context),
+          ),
+        ],
+      ),
+    );
   }
-  showCupertinoDialog(
-    context: context,
-    builder: (_) => CupertinoAlertDialog(
-      title: Text(titulo),
-      content: Text(subtitulo),
-      actions: [
-        CupertinoDialogAction(
-          isDefaultAction: true,
-          child: const Text('Ok'),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ],
-    ),
-  );
 }
